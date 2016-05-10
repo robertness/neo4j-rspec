@@ -32,5 +32,16 @@ RSpec.describe "Has N" do
     it { is_expected.to have_many(:written_things).with_direction(:in) }
     it { is_expected.to have_many(:written_things).with_direction(:in).without_type }
     it { is_expected.to have_many(:written_things).with_direction(:in).without_type.with_model_class(:Post, :Comment) }
+    ####
+    it { is_expected.to have_one(:advisor).with_direction(:in)}
+    it { is_expected.to have_one(:advisor).with_direction(:in).with_origin(:students)} # error?
+    it { is_expected.to have_many(:students).with_direction(:out)}
+    ###
+  end
+
+  describe Book do
+    it { is_expected.to have_one(:author)}
+    it { is_expected.to have_one(:author).with_direction(:in)}
+    it { is_expected.to have_one(:author).with_direction(:in).with_origin(:book)}
   end
 end
