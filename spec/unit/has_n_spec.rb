@@ -42,6 +42,6 @@ RSpec.describe "Has N" do
   describe Book do
     it { is_expected.to have_one(:author)}
     it { is_expected.to have_one(:author).with_direction(:in)}
-    it { is_expected.to have_one(:author).with_direction(:in).with_origin(:book)}
+    it { is_expected.to have_one(:author).with_direction(:in).with_origin(:book)} # error?
   end
 end
